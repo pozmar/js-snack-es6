@@ -69,21 +69,21 @@ saranno tutte settate a 0.
 Generare numeri random al posto degli 0 nelle proprietà:
 punti fatti e falli subiti*/
 //creo array di oggetti in cui definisco il valore solo della chiave 'nome'. Creo poi una funzione per generare i numeri random e la inserisco come valore nele chiavi 'punti' e 'falli'.
-const Random = () => Math.floor(Math.random() * 6 - 1) + 1;
+const random = () => Math.floor(Math.random() * 6 - 1) + 1;
 const squadre = [
   {
     'nome' : 'Inter',
-    'punti' : Random(),
-    'falli' : Random()
+    'punti' : random(),
+    'falli' : random()
   },
   {
     'nome' : 'Milan',
-    'punti' : Random(),
-    'falli' : Random()
+    'punti' : random(),
+    'falli' : random()
   },
   {
     'nome' : 'Roma',
-    'punti' : Random(),
-    'falli' : Random()
+    'punti' : random(),
+    'falli' : random()
   }
 ];
