@@ -14,7 +14,7 @@ const palla = {
 /*ES.1B. Attraverso un prompt dare la possibilità all’utente di
 modificare il peso della palla.
 */
-palla.peso = parseInt(prompt("Inserisci il peso della palla"))
+// palla.peso = parseInt(prompt("Inserisci il peso della palla"))
 /*ES.2. Creare un array di oggetti: ogni oggetto descriverà una bici
 da corsa con le seguenti proprietà: nome e peso.
 Stampare a schermo la bici con peso minore.*/
@@ -37,6 +37,7 @@ const bici = [
     'peso' : 10
   }
 ];
+
 //creo una var per la bici che avrà il peso minore scegliendo che corrisponda al primo oggetto nell'array
 let bicileggera = bici[0];
 //faccio un ciclo sgli oggetti nell'array
@@ -46,7 +47,11 @@ for(let i = 0; i < bici.length; i++){
     bicileggera = bici[i];
   }
 }
-console.log(bicileggera)
+// let {nome} = bicileggera;
+//uso il template literal per inserire il testo e il valore della chiave nome dell'oggetto bicileggera
+let {nome} = bicileggera;
+console.log(`La bici più leggera è : ${nome}`)
+
 /*ES.3. Creare un oggetto che rappresenti un triangolo rettangolo,
 con le seguenti proprietà: base e altezza.
 Calcolare perimetro e area.*/
@@ -87,3 +92,32 @@ const squadre = [
     'falli' : random()
   }
 ];
+
+/*ES.5. Partendo da un array semplice tipo:
+var myArray = ['Michele', 'Fabio', 'Roberto', 'Giovanni', 'Simone', 'Chiara'];
+chiediamo all’utente con 2 prompt due numeri tra 0 e la lunghezza dell’array
+quindi creiamone uno nuovo con solo i valori che hanno la posizione compresa tra i due numeri inseriti dall’utente*/
+//creo la costante lista
+const lista = ['Marco', 'Chiara', 'Simone', 'Alessia', 'Mirko', 'Gaia'];
+//creo la costante che conterrà gli input dell'utente
+const inputList = [];
+//con il while dico di generare i prompt finchè non avrò due elementi dentro all'array
+while(inputList.length < 2){
+  let input = parseInt(prompt("Inserisci un numero tra 0 e 4"));
+  //creo le condizioni per accettare gli input nell'array
+  if(input < 0 || input > lista.length || isNaN(input)){
+    alert("Hai sbaglaito qualcosa, riprova!")
+  }
+  //aggiungo gli elementi selezionati dentro all'array
+  else{
+    inputList.push(input);
+  }
+}
+//metto in ordine i numeri dentro all'array
+inputList.sort();
+//creo la costante che conterrà gli elementi filtrati nel miio array. cin Filter prendo gli elementi che hanno nell'indice sono tra i valori inseriti nei prompt
+const filteredLista = lista.filter((element, index) => {
+return index > inputList[0] && index < inputList[1];
+});
+//stampo la lista filtrata
+console.log(filteredLista)
