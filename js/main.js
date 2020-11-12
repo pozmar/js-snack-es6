@@ -117,7 +117,35 @@ while(inputList.length < 2){
 inputList.sort();
 //creo la costante che conterrà gli elementi filtrati nel miio array. cin Filter prendo gli elementi che hanno nell'indice sono tra i valori inseriti nei prompt
 const filteredLista = lista.filter((element, index) => {
-return index > inputList[0] && index < inputList[1];
+  return index > inputList[0] && index < inputList[1];
 });
 //stampo la lista filtrata
-console.log(filteredLista)
+console.log(filteredLista);
+
+/*dato questo array di obj iniziale:
+var arrayObj = [
+{name: 'Poppy', type: 'tshirt', color: 'red'},
+{name: 'Jumping', type: 'occhiali', color: 'blue'},
+{name: 'CrissCross', type: 'scarpe', color: 'black'},
+{name: 'Jenny', type: 'borsa', color: 'pink'},
+];
+Creiamo una copia dell’array di partenza e aggiungiamo ai singoli elementi (quindi ogni oggetto del nuovo array)
+una nuova proprietà position che contiene una lettera casuale. non dobbiamo modificare l’array iniziale*/
+const arrayObj = [
+  {name: 'Poppy', type: 'tshirt', color: 'red'},
+  {name: 'Jumping', type: 'occhiali', color: 'blue'},
+  {name: 'CrissCross', type: 'scarpe', color: 'black'},
+  {name: 'Jenny', type: 'borsa', color: 'pink'},
+];
+//creo l'array copia
+const cloneObj = [];
+//creo una funzione che generi le lettere random
+function randomLetter(){
+  const alphabet = 'abcdefghilmnopqrstuvz';
+  return alphabet[Math.floor(Math.random() * alphabet.length)]
+}
+//ciclo su ogni elemento del primo array e aggiungo al nuovo array gli elementi del primo più la coppia chiave-valore position/lettera random
+arrayObj.forEach((element) => {
+  cloneObj.push({...element, position: randomLetter()})
+})
+console.log(cloneObj);
